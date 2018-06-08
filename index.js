@@ -45,7 +45,7 @@ const handleData = (data) => {
 
 const monitorTickets = () => {
 
-	console.log('Checking tickets');
+	console.log('Checking for new tickets...');
 
 	getTickets()
 		.then((d) => {
