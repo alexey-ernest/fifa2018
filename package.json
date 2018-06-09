@@ -23,6 +23,7 @@
   "homepage": "https://github.com/alexey-ernest/fifa2018#readme",
   "dependencies": {
     "beeper": "^1.1.1",
+    "node-telegram-bot-api": "^0.30.0",
     "request": "^2.87.0"
   }
 }

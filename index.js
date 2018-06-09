@@ -5,6 +5,7 @@ const beep = require('beeper');
 const MATCHES = require('./matches');
 const CATEGORIES = require('./categories');
 const CONFIG = require('./config');
+const telegram = require('./telegram');
 
 const URL = 'https://tickets.fifa.com/API/WCachedL1/en/Availability/GetAvailability';
 const MONITOR_TICKETS_INTERVAL = 10000;
@@ -41,7 +42,11 @@ const handleData = (data) => {
 		if (m.a !== 0 && CONFIG.monitor[m.p]) {
 			let match = MATCHES[m.p] || m.p;
 			let category = CATEGORIES[m.c] || m.c;
-			console.log(`Tickets for match ${match}, cat. ${category} are available!`);
+			
+			let msg = `Tickets for match ${match}, cat. ${category} are available!`;
+			console.log(msg);
+			telegram.broadcast(msg);
+
 			beep(1);
 		}
 	}
