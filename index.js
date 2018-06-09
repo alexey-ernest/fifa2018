@@ -8,7 +8,7 @@ const CONFIG = require('./config');
 const telegram = require('./telegram');
 
 const URL = 'https://tickets.fifa.com/API/WCachedL1/en/Availability/GetAvailability';
-const MONITOR_TICKETS_INTERVAL = 10000;
+const MONITOR_TICKETS_INTERVAL = 3000;
 
 let LAST_CACHE = null;
 let LAST_DATA = null;
@@ -41,7 +41,10 @@ const handleData = (data) => {
 	for (let m of data) {
 		if (m.a !== 0 && CONFIG.monitor[m.p]) {
 			let match = MATCHES[m.p] || m.p;
-			let category = CATEGORIES[m.c] || m.c;
+			let category = CATEGORIES[m.c];
+			if (!category) {
+				continue;
+			}
 			
 			let msg = `Tickets for match ${match}, cat. ${category} are available!`;
 			console.log(msg);
