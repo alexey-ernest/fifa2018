@@ -2,6 +2,10 @@
 const request = require('request');
 const beep = require('beeper');
 
+const MATCHES = require('./matches');
+const CATEGORIES = require('./categories');
+const CONFIG = require('./config');
+
 const URL = 'https://tickets.fifa.com/API/WCachedL1/en/Availability/GetAvailability';
 const MONITOR_TICKETS_INTERVAL = 10000;
 
@@ -31,13 +35,14 @@ const getTickets = () => new Promise((resolve, reject) => {
 
 const handleData = (data) => {
 
-	console.log('New data');
-	console.log(data);
+	console.log('New data available');
 
 	for (let m of data) {
-		if (m.a !== 0) {
-			console.log(`Tickets for match ${m.p} are available!`);
-			beep(10);
+		if (m.a !== 0 && CONFIG.monitor[m.p]) {
+			let match = MATCHES[m.p] || m.p;
+			let category = CATEGORIES[m.c] || m.c;
+			console.log(`Tickets for match ${match}, cat. ${category} are available!`);
+			beep(1);
 		}
 	}
 
@@ -45,7 +50,7 @@ const handleData = (data) => {
 
 const monitorTickets = () => {
 
-	console.log('Checking for new tickets...');
+	console.log(`${new Date()} checking for new tickets...`);
 
 	getTickets()
 		.then((d) => {
@@ -69,6 +74,3 @@ const monitorTickets = () => {
 	monitorTickets();
 
 })();
-
-getTickets()
-	.then(console.log);
