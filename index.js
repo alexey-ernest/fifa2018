@@ -12,6 +12,7 @@ const MONITOR_TICKETS_INTERVAL = 3000;
 
 let LAST_CACHE = null;
 let LAST_DATA = null;
+let CACHE = {};
 
 const getTickets = () => new Promise((resolve, reject) => {
 
@@ -38,20 +39,37 @@ const handleData = (data) => {
 
 	console.log('New data available');
 
+	const msgs = [];
 	for (let m of data) {
+
+		let match = MATCHES[m.p] || m.p;
+		let category = CATEGORIES[m.c];
+
+		let cacheKey = match + '-' + category;
+
+		if (!category) {
+			continue;
+		}
+
 		if (m.a !== 0 && CONFIG.monitor[m.p]) {
-			let match = MATCHES[m.p] || m.p;
-			let category = CATEGORIES[m.c];
-			if (!category) {
+
+			if (CACHE[cacheKey] === m.a) {
 				continue;
 			}
+
 			
 			let msg = `Tickets for match ${match}, cat. ${category} are available!`;
-			console.log(msg);
-			telegram.broadcast(msg);
+			msgs.push(msg);
 
+			console.log(msg);
 			beep(1);
 		}
+
+		CACHE[cacheKey] = m.a;
+	}
+
+	if (msgs.length > 0) {
+		telegram.broadcast(msgs.join('\n'));
 	}
 
 };
