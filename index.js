@@ -22,7 +22,7 @@ const getTickets = () => new Promise((resolve, reject) => {
 		json: true,
 		method: 'GET'
 	  }, (err, response, body) => {
-		if (err) return fn(err);
+		if (err) return reject(err);
 
 		if (response.statusCode !== 200) {
 			return reject(`Invalid status code received from url ${url}: ${response.statusCode}`);  
