@@ -12,6 +12,8 @@ module.exports = {
 		IMT56: 1, // Moscow
 		IMT62: 1, // Moscow
 		IMT64: 1, // Moscow
+		IMT52: 1, // Nizhniy
+		IMT57: 1
 	}
 
 };
