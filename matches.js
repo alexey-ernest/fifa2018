@@ -57,13 +57,13 @@ module.exports = {
 	'IMT54': '1/8 final, G1-H2, Rostov-on-Don, 2 JULY',
 	'IMT55': '1/8 final, F1-E2, Saint Petersburg, 3 JULY',
 	'IMT56': '1/8 final, H1-G2, Moscow, 3 JULY',
-	'IMT57': '1/4 final, W49-W50, Nizhny Novgorod, 6 JULY',
-	'IMT58': '1/4 final, W53-W54, Kazan, 6 JULY',
-	'IMT59': '1/4 final, W51-W52, Sochi, 7 JULY',
-	'IMT60': '1/4 final, W55-W56, Samara, 7 JULY',
-	'IMT61': '1/2 final, W57-W58, Saint Petersburg, 10 JULY',
-	'IMT62': '1/2 final, W59-W60, Moscow, 11 JULY',
-	'IMT63': 'Third place playoff, Saint Petersburg, 14 JULY',
-	'IMT64': 'Final, Moscow, 15 JULY'
+	'IMT57': '#57 1/4 final, W49-W50, Nizhny Novgorod, 6 JULY',
+	'IMT58': '#58 1/4 final, W53-W54, Kazan, 6 JULY',
+	'IMT59': '#59 1/4 final, W51-W52, Sochi, 7 JULY',
+	'IMT60': '#60 1/4 final, W55-W56, Samara, 7 JULY',
+	'IMT61': '#61 1/2 final, W57-W58, Saint Petersburg, 10 JULY',
+	'IMT62': '#62 1/2 final, W59-W60, Moscow, 11 JULY',
+	'IMT63': '#63 Third place playoff, Saint Petersburg, 14 JULY',
+	'IMT64': '#64 Final, Moscow, 15 JULY'
 
 };
