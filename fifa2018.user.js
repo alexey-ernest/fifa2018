@@ -2,7 +2,7 @@
 // @name Fifa2018
 // @license MIT
 // @version 1.0
-// @include http://userscripts.org/*
+// @include https://tickets.fifa.com/*
 // ==/UserScript==
 (function (window, undefined) {
     var w;
@@ -15,9 +15,24 @@
         return;
     }
     
-    // [4] дополнительная проверка наряду с @include
-    if (/http:\/\/userscripts.org/.test(w.location.href)) {
-        //Ниже идёт непосредственно код скрипта
-        console.log('Hello from the user script.');
+    if (/https:\/\/tickets.fifa.com/.test(w.location.href)) {
+    
+        window.addEventListener('load', function() {
+            
+            console.log('Ready');
+
+            addJQuery(function () {
+
+                console.log('Ready');
+
+                // get nav bar
+                console.log($('[data-resource-id="AddProducts"]'));
+                // const navbarScope = angular.element($('#TOPSNavbar')).scope();
+                // console.log(navbarScope);
+
+            });
+
+        }, false);
+
     }
 })(window);
