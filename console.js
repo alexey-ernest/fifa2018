@@ -1,28 +1,19 @@
 
+if (!angular.element('[ng-controller="navBarController"]').scope()) {
+	angular.reloadWithDebugInfo();	
+} else {
+	angular.element('[ng-controller="navBarController"]').scope().goToProductList();
+}
 
-//angular.element('#TOPSNavbar').scope().goToProductList();
+function ping() {
+	$.get("https://tickets.fifa.com/API/WCachedL1/en/Availability/GetAvailability", function(data) {
+	  console.log('ping');
+	});
+}
 
+setInterval(ping, 10000);
 
-// var productIndex = '0IMT58';
-// var product = {
-// 	MatchId: 57,
-// 	ProductId: "IMT57"
-// };
-// var category = {
-// 	PRPCategoryId: 14,
-// 	PRPProductId: "IMT57",
-// 	ProductTypeCode: "IMT",
-// 	details: {
-// 		Accessibility: false,
-// 		CategoryId: 14,
-// 	}
-// };
-
-// angular.element('[ng-controller="productBoxController"]').scope().setselectedProduct(productIndex, product, category);
-
-angular.reloadWithDebugInfo();
-
-var match = 58;
+var match = 64;
 var cat = 14;
 var amount = 2;
 
@@ -65,19 +56,3 @@ $('body').append('<button onclick="cat=15; reserveTicket();" style="position: ab
 $('body').append('<button onclick="cat=16; reserveTicket();" style="position: absolute; top: 300px; left: 200px; width: 100px; height: 60px;">Cat 3</button>');
 $('body').append('<button onclick="cat=17; reserveTicket();" style="position: absolute; top: 300px; left: 300px; width: 100px; height: 60px;">Cat 4</button>');
 $('body').append('<button onclick="cat=56; reserveTicket();" style="position: absolute; top: 300px; left: 400px; width: 100px; height: 60px;">OV</button>');
-
-
-// var r = {
-// 	CategoryId: 14,
-// 	MatchId: undefined,
-// 	PriceType: 155,
-// 	ProductCode: undefined,
-// 	ProductId: "IMT60",
-// 	Quantity: 2,
-// 	QuantityCompanions: undefined,
-// 	SeatId: undefined,
-// 	userAnswer: [498, 714, 928, 565]
-// };
-
-
-// setselectedProduct(productIndex,product,category); setselectedProductAmount(null);
