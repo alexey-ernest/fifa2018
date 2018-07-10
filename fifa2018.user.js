@@ -19,18 +19,11 @@
     
         window.addEventListener('load', function() {
             
-            console.log('Ready');
-
-            addJQuery(function () {
-
-                console.log('Ready');
-
-                // get nav bar
-                console.log($('[data-resource-id="AddProducts"]'));
-                // const navbarScope = angular.element($('#TOPSNavbar')).scope();
-                // console.log(navbarScope);
-
-            });
+            setTimeout(function () {
+                console.log(angular);
+                console.log(jQuery);
+            }, 5000);
+            
 
         }, false);
 
