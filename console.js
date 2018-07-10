@@ -2,7 +2,7 @@
 if (!angular.element('[ng-controller="navBarController"]').scope()) {
 	angular.reloadWithDebugInfo();	
 } else {
-	angular.element('[ng-controller="navBarController"]').scope().goToProductList();
+	//angular.element('[ng-controller="navBarController"]').scope().goToProductList();
 }
 
 function ping() {
